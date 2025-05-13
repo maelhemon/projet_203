@@ -1,0 +1,126 @@
+/* style.css */
+:root {
+    --font-stack: "Segoe UI", Roboto, sans-serif;
+    --color-bg: #f0f4f8;
+    --color-card: #ffffff;
+    --color-primary: #007acc;
+    --color-primary-hover: #005fa3;
+    --color-text: #333333;
+    --color-placeholder: #777777;
+    --radius: 8px;
+    --spacing: 1rem;
+    --transition-speed: 0.2s;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 100%; /* 16px */
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-stack);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    padding: var(--spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    background-color: var(--color-card);
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Formulaire & élément */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: var(--spacing);
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--color-text);
+    background-color: #fff;
+    transition: border-color var(--transition-speed);
+  }
+  
+  input[type="text"]::placeholder {
+    color: var(--color-placeholder);
+  }
+  
+  input[type="text"]:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+  }
+  
+  /* Bouton principal */
+  button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+  }
+  
+  button:hover,
+  button:focus {
+    background-color: var(--color-primary-hover);
+    outline: none;
+  }
+  
+  button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+  }
+  
+  /* Texte d’information */
+  #cp {
+    margin-top: var(--spacing);
+    font-size: 0.9rem;
+    color: var(--color-text);
+  }
+  
+  /* Responsive */
+  @media (max-width: 500px) {
+    .container {
+      padding: var(--spacing);
+    }
+  
+    input[type="text"],
+    select,
+    button {
+      font-size: 0.9rem;
+      padding: 0.65rem;
+    }
+  }
