@@ -1,5 +1,7 @@
 document.getElementById("cp").addEventListener("input",async function() {
     let code_postal = document.getElementById("cp").value;//récupère le code postal que l'utilisateur rentre
+    console.log(code_postal)
+    let select=document.getElementById("commune")
     select.innerHTML='<option value="">-- Sélectionnez une commune --</option>'; //vide le menu déroulant à chaque reload de la page
     fetch('https://geo.api.gouv.fr/communes?codePostal=' + code_postal) //requete get vers l'api
         .then((response) => response.json()) // conversion du resultat de la requete en json
@@ -14,7 +16,7 @@ document.getElementById("cp").addEventListener("input",async function() {
         .catch((error) => {
             console.error("Erreur API :", error); // affiche dans la console le fail de l'interrogation de l'api
         });
-})
+});
 //var listener_disp=document.getElementById("retr_meteo").addEventListener(InputEvent);
 //if (insee!=0 && listener_disp){
 //    let data = retr_post
