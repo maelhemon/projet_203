@@ -1,4 +1,4 @@
-document.getElementById("cp").addEventListener("input",function retr_post() {
+document.getElementById("cp").addEventListener("input",async function() {
     let code_postal = document.getElementById("cp").value;//récupère le code postal que l'utilisateur rentre
     select.innerHTML='<option value="">-- Sélectionnez une commune --</option>'; //vide le menu déroulant à chaque reload de la page
     fetch('https://geo.api.gouv.fr/communes?codePostal=' + code_postal) //requete get vers l'api
