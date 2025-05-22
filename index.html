@@ -12,13 +12,13 @@
    <div class="instant weather">
    <label for="commune">Entrez un code postal</label>
    <br>
-   <input type="hidden" id="cp" placeholder="Entrez une commune ou un code postal" />
+   <input autocomplete="off" id="cp" required placeholder="Entrez une commune ou un code postal" />
    <br>
-   <select id="commune">Sélectionnez une commune</select>
+   <select id="communes">Sélectionnez une commune</select>
    <br>
-   <button id="retr_meteo">Obtenir la météo</button>
+   <button id="retr_weather">Obtenir la météo</button>
    <br>
-   <button>Effacer</button>
+   <button id="reset">Effacer</button>
    </div>
   <!-- Zone d'affichage des résultats -->
   <p id="result"></p>
