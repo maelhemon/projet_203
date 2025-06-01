@@ -2,26 +2,41 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Météo Concept API</title>
+  <title>Climatik</title>
   <script defer src="ville_vf.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png"  href="img/logo.png">
 </head>
 <body>
-  <h1>Instant Weather</h1>
-   
+
+  <h1>Climatik</h1>
   <!-- Zone de saisie et bouton pour récupérer la météo -->
-   <div class="instant weather">
-   <label for="commune">Entrez un code postal</label>
-   <br>
-   <input autocomplete="off" id="cp" required placeholder="Entrez une commune ou un code postal" />
-   <br>
-   <select id="communes"><option  value="default">Sélectionnez une commune</option></select>
-   <br>
-   <button id="retr_weather">Obtenir la météo</button>
-   <br>
-   <button id="reset">Effacer</button>
+   <article>
+
+      <div class="instant_weather">
+        <br>
+        <label for="commune">Entrez un code postal</label>
+        <br>
+        <input autocomplete="off" id="cp" required placeholder="Entrez une commune ou un code postal" />
+        <br>
+        <select id="communes"><option  value="default">Sélectionnez une commune</option></select>
+        <br>
+        <button id="retr_weather">Obtenir la météo</button>
+       <br>
+       <button id="reset">Effacer</button>
    </div>
+   <section class="disp_weather">
+      <label for="days">Nombre de jours : <span id="days_nb"></span></label>
+      <br>
+      <input type="range" id="days" name="jours" min="1" max="7" value="1" oninput="document.getElementById('days_nb').innerText = this.value">
+      <div id="weather" class="weather">
+       Aucune données météos à afficher
+      </div>
+   </section>
+   </article>
   <!-- Zone d'affichage des résultats -->
   <p id="result"></p>
+
 
 </body>
 </html>
