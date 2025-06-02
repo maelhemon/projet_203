@@ -1,35 +1,35 @@
 /* ------------------ STYLE GLOBAL DU BODY ------------------ */
 body {
-  display: flex;                      /* Flexbox pour centrer verticalement et horizontalement */
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;                 /* Hauteur minimum = 100% de l'écran */
+  min-height: 100vh;
   margin: 1rem;
   text-align: center;
   background-image: url("img/acceuil.jpg");
-  background-size: cover;            /* L'image couvre toute la zone visible */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: sans-serif;
-  color: #003366;                    /* Couleur du texte par défaut */
+  color: #003366;
 }
 
 /* ------------------ STYLE DES BLOCS PRINCIPAUX ------------------ */
 article {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);  /* Fond blanc semi-transparent */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);   /* Ombre portée */
-  width: 90%;                     /* Largeur adaptative */
-  max-width: 800px;               /* Largeur max */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
   font-size: 1.2rem;
 }
 
 /* ------------------ GRILLE DES CARTES MÉTÉO ------------------ */
 .weather {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes auto-réactives */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 2rem;
   width: 100%;
@@ -59,7 +59,6 @@ article {
 #welcome {
   font-size: 2rem;
 }
-
 .instant_weather {
   font-size: 1.2rem;
 }
@@ -74,42 +73,63 @@ article {
 
 /* ------------------ LISTE DEROULANTE DES COMMUNES ------------------ */
 #communes {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  min-width: 220px;
 }
 
 /* ------------------ STYLE DES BOUTONS & SELECT ------------------ */
 button,
 select {
   background-color: rgba(81, 186, 224, 0.1);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  border-radius: 0.8rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
   border: 1px solid #ccc;
   cursor: pointer;
+  min-width: 220px;
 }
 
 button:hover {
-  background-color: rgba(81, 186, 224, 0.2);  /* Couleur plus vive au survol */
+  background-color: rgba(81, 186, 224, 0.2);
 }
 
-/* ------------------ STYLE DES CHECKBOX ------------------ */
+/* ------------------ INPUT TEXT/NOMBRE ------------------ */
+input[type="text"],
+input[type="number"] {
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #aaa;
+  min-width: 220px;
+}
+
+/* ------------------ CHECKBOX ------------------ */
 input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: #101c53;  /* Couleur personnalisée (fonctionne sur Chrome, Firefox...) */
+  width: 24px;
+  height: 24px;
+  accent-color: #101c53;
+  margin-right: 0.5rem;
 }
 
 /* ------------------ SLIDER (input range) ------------------ */
 input[type="range"] {
-  width: 100%;              /* S’adapte à la largeur de l’écran */
-  max-width: 400px;
-  height: 0.6rem;
+  width: 100%;
+  max-width: 500px;
+  height: 1rem;
   background: #ffffff;
   border-radius: 4px;
-  accent-color: #6268ba;   /* Couleur de la poignée */
-  margin: 1rem 0;
+  accent-color: #6268ba;
+  margin: 1.5rem 0;
+}
+
+/* ------------------ STYLE GLOBAL DES INPUTS ------------------ */
+input {
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid #aaa;
 }
 
 /* ------------------ RESPONSIVE : ÉCRANS ≤ 768px ------------------ */
@@ -119,7 +139,7 @@ input[type="range"] {
   }
 
   .weather {
-    grid-template-columns: 1fr;  /* Une seule colonne sur mobile/tablette */
+    grid-template-columns: 1fr;
     padding: 1rem;
   }
 
@@ -137,8 +157,9 @@ input[type="range"] {
   }
 
   button,
-  select {
-    width: 90%;     /* Plus grands pour les doigts en mobile */
+  select,
+  input {
+    width: 90%;
   }
 }
 
