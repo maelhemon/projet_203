@@ -7,7 +7,11 @@ body {
   min-height: 100vh;
   margin: 1rem;
   text-align: center;
-  background: linear-gradient(135deg, #d0eaff, #f0f9ff); /* fond clair */
+  background-image: url("img/acceuil.jpg");
+  background-size: cover;        /* Pour que l'image couvre tout l'écran */
+  background-position: center;   /* Centrer l'image */
+  background-repeat: no-repeat;  /* Ne pas répéter l'image */
+
   font-family: sans-serif;
   color: #003366;
 }
