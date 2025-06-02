@@ -117,17 +117,18 @@ input[type="checkbox"] {
 input[type="range"] {
   width: 100%;
   max-width: 500px;
-  height: 1rem;
   background: #ffffff;
   border-radius: 4px;
   accent-color: #6268ba;
   margin: 1.5rem 0;
+  max-height: 500px;
+  height:100%
 }
 
 /* ------------------ STYLE GLOBAL DES INPUTS ------------------ */
 input {
-  font-size: 1.2rem;
-  padding: 1rem;
+  font-size: 1rem;
+  padding: 2rem;
   border-radius: 0.8rem;
   border: 1px solid #aaa;
 }
@@ -165,6 +166,7 @@ input {
 
 /* ------------------ RESPONSIVE : ÉCRANS ≤ 480px (smartphones) ------------------ */
 @media screen and (max-width: 480px) {
+ 
   article {
     padding: 1rem;
   }
@@ -172,8 +174,11 @@ input {
   #welcome {
     font-size: 1.5rem;
   }
-
   .instant_weather {
     font-size: 1rem;
   }
+  input[type="range"]{
+    height:200vh;
+  }
+
 }

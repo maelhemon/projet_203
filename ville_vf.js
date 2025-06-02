@@ -151,7 +151,7 @@ function disp_selected_days() {
 
         let disp = document.createElement("div");
         disp.className = `WeatherCard_day`;
-        let html = `<strong>Jour ${i + 1} :</strong><br>${description}<br>`;
+        let html = `<strong>${day.datetime} :</strong><br>${description}<br>`;
         html += `Température min : ${day.tmin}°, max : ${day.tmax}°<br>`;
         html += `Probabilité de pluie : ${day.probarain}%<br>`;
         html += `Ensoleillement : ${day.sun_hours} h<br>`;
