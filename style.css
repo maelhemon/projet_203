@@ -1,24 +1,158 @@
-
+/* ------------------ STYLE GLOBAL DU BODY ------------------ */
 body {
-  display: flex;
+  display: flex;                      /* Flexbox pour centrer verticalement et horizontalement */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100vh;                 /* Hauteur minimum = 100% de l'écran */
   margin: 1rem;
   text-align: center;
   background-image: url("img/acceuil.jpg");
-  background-size: cover;        /* Pour que l'image couvre tout l'écran */
-  background-position: center;   /* Centrer l'image */
-  background-repeat: no-repeat;  /* Ne pas répéter l'image */
-
+  background-size: cover;            /* L'image couvre toute la zone visible */
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: sans-serif;
-  color: #003366;
+  color: #003366;                    /* Couleur du texte par défaut */
 }
 
+/* ------------------ STYLE DES BLOCS PRINCIPAUX ------------------ */
 article {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* boîte blanche translucide */
+  background-color: rgba(255, 255, 255, 0.8);  /* Fond blanc semi-transparent */
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);   /* Ombre portée */
+  width: 90%;                     /* Largeur adaptative */
+  max-width: 800px;               /* Largeur max */
+  font-size: 1.2rem;
+}
+
+/* ------------------ GRILLE DES CARTES MÉTÉO ------------------ */
+.weather {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes auto-réactives */
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+/* ------------------ STYLE DES CARTES PAR JOUR ------------------ */
+.WeatherCard_day {
+  background-color: rgba(98, 221, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 13px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* ------------------ MESSAGE "NO DATA" ------------------ */
+.no-data {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* ------------------ TITRES ------------------ */
+#welcome {
+  font-size: 2rem;
+}
+
+.instant_weather {
+  font-size: 1.2rem;
+}
+
+/* ------------------ CONTENEUR DES OPTIONS MÉTÉO ------------------ */
+#weather_selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ------------------ LISTE DEROULANTE DES COMMUNES ------------------ */
+#communes {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ------------------ STYLE DES BOUTONS & SELECT ------------------ */
+button,
+select {
+  background-color: rgba(81, 186, 224, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(81, 186, 224, 0.2);  /* Couleur plus vive au survol */
+}
+
+/* ------------------ STYLE DES CHECKBOX ------------------ */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #101c53;  /* Couleur personnalisée (fonctionne sur Chrome, Firefox...) */
+}
+
+/* ------------------ SLIDER (input range) ------------------ */
+input[type="range"] {
+  width: 100%;              /* S’adapte à la largeur de l’écran */
+  max-width: 400px;
+  height: 0.6rem;
+  background: #ffffff;
+  border-radius: 4px;
+  accent-color: #6268ba;   /* Couleur de la poignée */
+  margin: 1rem 0;
+}
+
+/* ------------------ RESPONSIVE : ÉCRANS ≤ 768px ------------------ */
+@media screen and (max-width: 768px) {
+  article {
+    font-size: 1rem;
+  }
+
+  .weather {
+    grid-template-columns: 1fr;  /* Une seule colonne sur mobile/tablette */
+    padding: 1rem;
+  }
+
+  #weather_selection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .WeatherCard_day {
+    font-size: 1rem;
+  }
+
+  input[type="range"] {
+    width: 90%;
+  }
+
+  button,
+  select {
+    width: 90%;     /* Plus grands pour les doigts en mobile */
+  }
+}
+
+/* ------------------ RESPONSIVE : ÉCRANS ≤ 480px (smartphones) ------------------ */
+@media screen and (max-width: 480px) {
+  article {
+    padding: 1rem;
+  }
+
+  #welcome {
+    font-size: 1.5rem;
+  }
+
+  .instant_weather {
+    font-size: 1rem;
+  }
 }

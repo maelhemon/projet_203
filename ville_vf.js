@@ -21,7 +21,9 @@ var result = document.getElementById('result');
 var menu = document.getElementById('communes');
 var input_cp = document.getElementById('cp');
 var weather = document.getElementById('weather');
+var nodata=document.getElementById('no-data')
 var response = {}; // Pour stocker la réponse météo
+var weather_selection=document.getElementById('weather_selection')
 
 
 // Slider : affichage de la valeur initiale
@@ -95,6 +97,7 @@ function defaultOption() {
 async function disp_weather(insee) {
     console.log("Code INSEE sélectionné :", insee);
     result.textContent = "";
+    nodata.innerHTML=""
 
     const apiKey = "0151d2f2b74239e64d3f426f5e6bea2dd11c92075c4fcda3ea410795701b1b79";
 
@@ -109,17 +112,18 @@ async function disp_weather(insee) {
         return;
     }
 
-    weather.innerHTML = `
+    weather_selection.innerHTML = `
         <div id="options">
-            <label><input type="checkbox" id="showRain"> Afficher le cumul de pluie</label>
-            <label><input type="checkbox" id="showWindir"> Afficher la direction du vent</label>
-            <label><input type="checkbox" id="showCoords"> Afficher les coordonnées</label>
-            <label><input type="checkbox" id="showWindspeed"> Afficher la vitesse du vent</label>
+            <aria-label><input type="checkbox" id="showRain"> Afficher le cumul de pluie</aria-label>
+            <aria-label><input type="checkbox" id="showWindir"> Afficher la direction du vent</aria-label>
+            <aria-label><input type="checkbox" id="showCoords"> Afficher les coordonnées</aria-label>
+            <aria-label><input type="checkbox" id="showWindspeed"> Afficher la vitesse du vent</aria-label>
         </div>
     `;
+    disp_selected_days();
     document.getElementById('options').addEventListener('change', disp_selected_days);
 
-    disp_selected_days();
+    
 }
 
 
@@ -147,7 +151,6 @@ function disp_selected_days() {
 
         let disp = document.createElement("div");
         disp.className = `WeatherCard_day`;
-
         let html = `<strong>Jour ${i + 1} :</strong><br>${description}<br>`;
         html += `Température min : ${day.tmin}°, max : ${day.tmax}°<br>`;
         html += `Probabilité de pluie : ${day.probarain}%<br>`;
@@ -205,7 +208,6 @@ document.getElementById('retr_weather').addEventListener('click', function () {
         result.textContent = "Veuillez rentrer un code postal valide";
     }
 });
-
 document.getElementById('days').addEventListener('input', disp_selected_days);
 document.getElementById('reset').addEventListener('click', reset);
 
