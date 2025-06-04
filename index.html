@@ -6,6 +6,10 @@
   <script defer src="ville_vf.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/jpg"  href="img/logo.jpg">
+  
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
 <body>
    <section id="welcome">
@@ -27,6 +31,7 @@
        <button id="reset">Effacer</button>
    </div>
     <section id ="disp_weather" class="disp_weather">
+       <!-- Zone d'affichage des résultats -->
       <p id="result"></p>
       <label for="days">Nombre de jours : <span id="days_nb"></span></label>
       <br>
@@ -34,9 +39,10 @@
       <div id="no-data" class="no-data"> Aucune données météos à afficher</div> 
       <div id="weather_selection"></div>
       <div id="weather" class="weather"></div>
-       <!-- Zone d'affichage des résultats -->
+      
       
    </section>
+        <div id="map" style="height: 400px; width: 100%; margin-top: 1rem;"></div>
    </article>
 </body>
 </html>

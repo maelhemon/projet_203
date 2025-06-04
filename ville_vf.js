@@ -24,6 +24,8 @@ var weather = document.getElementById('weather');
 var nodata=document.getElementById('no-data')
 var response = {}; // Pour stocker la réponse météo
 var weather_selection=document.getElementById('weather_selection')
+var map; // Carte Leaflet
+var marker; // Marqueur actuel
 
 
 // Slider : affichage de la valeur initiale
@@ -105,6 +107,12 @@ async function disp_weather(insee) {
         const weather_api = await fetch(`https://api.meteo-concept.com/api/forecast/daily?token=${apiKey}&insee=${insee}`);
         const data = await weather_api.json();
         response = data;
+
+            if (response.city && response.city.latitude && response.city.longitude) {
+    const { latitude, longitude, name } = response.city;
+    afficherCarte(latitude, longitude, name);
+            }
+
         console.log("Réponse API météo :", data);
     } catch (error) {
         console.error("Erreur API météo :", error);
@@ -174,6 +182,21 @@ function disp_selected_days() {
     }
 }
 
+function afficherCarte(lat, lon, commune) {
+    if (!map) {
+        map = L.map('map').setView([lat, lon], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+    } else {
+        map.setView([lat, lon], 12);
+        if (marker) marker.remove();
+    }
+
+    marker = L.marker([lat, lon]).addTo(map)
+        .bindPopup(`<strong>${commune}</strong><br>Lat: ${lat}<br>Lon: ${lon}`)
+        .openPopup();
+}
 
 // Réinitialisation complète
 
